@@ -1,16 +1,27 @@
-# bus_stops_app
+# 🚌 Bus Stops App
 
-A new Flutter project.
+A simple Flutter app that demonstrates **list/detail UI, local persistence, and search functionality** using local JSON data.  
+This project is built as part of an assignment.
 
-## Getting Started
+---
 
-This project is a starting point for a Flutter application.
+## ✨ Features
+- 📂 Load stops from **local JSON** (`assets/mock/stops.json`)
+- 📋 Display list of stops with **name + ETA**
+- 🔎 **Search / filter** bus stops by name
+- 📌 **Detail screen** with:
+  - Name of stop
+  - Latitude & Longitude
+  - ETA placeholder
+  - Favorite toggle
+- ❤️ Favorites persist across app restarts using **shared_preferences**
+- 🎨 Modern card-based **UI with gradient AppBar**
 
-A few resources to get you started if this is your first Flutter project:
+---
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## 🚀 Getting Started
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### 1. Clone the Repository
+```bash
+git clone <https://github.com/ayushsomani10/bus_stops_app.git>
+cd bus_stops_app

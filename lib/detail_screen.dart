@@ -34,20 +34,60 @@ class _DetailScreenState extends State<DetailScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(widget.stop.stopname)),
+      appBar: AppBar(
+        title: Text(widget.stop.stopname),
+        centerTitle: true,
+        elevation: 0,
+        flexibleSpace: Container(
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              colors: [Colors.blueAccent, Colors.lightBlue],
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+            ),
+          ),
+        ),
+      ),
       body: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(20),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Text("Latitude: ${widget.stop.latitude}"),
-            Text("Longitude: ${widget.stop.longitude}"),
-            Text("ETA: ${widget.stop.timedifference} mins"),
+            Card(
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+              elevation: 3,
+              child: Padding(
+                padding: const EdgeInsets.all(20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text("📍 Latitude: ${widget.stop.latitude}",
+                        style: const TextStyle(fontSize: 16)),
+                    Text("📍 Longitude: ${widget.stop.longitude}",
+                        style: const TextStyle(fontSize: 16)),
+                    const SizedBox(height: 10),
+                    Text("⏱ ETA: ${widget.stop.timedifference} mins",
+                        style: const TextStyle(
+                            fontSize: 18, fontWeight: FontWeight.bold)),
+                  ],
+                ),
+              ),
+            ),
             const SizedBox(height: 20),
             ElevatedButton.icon(
+              style: ElevatedButton.styleFrom(
+                padding: const EdgeInsets.symmetric(vertical: 15),
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(30)),
+                backgroundColor: isFav ? Colors.red : Colors.blueAccent,
+              ),
               onPressed: _toggleFav,
-              icon: Icon(isFav ? Icons.favorite : Icons.favorite_border),
-              label: Text(isFav ? "Remove Favorite" : "Add Favorite"),
+              icon: Icon(isFav ? Icons.favorite : Icons.favorite_border,
+                  color: Colors.white),
+              label: Text(
+                isFav ? "Remove from Favorites" : "Add to Favorites",
+                style: const TextStyle(color: Colors.white, fontSize: 16),
+              ),
             ),
           ],
         ),
